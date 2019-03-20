@@ -1,0 +1,13 @@
+{application,api_banking,
+             [{applications,[kernel,stdlib,elixir,logger,jason,ecto,postgrex,
+                             plug_cowboy]},
+              {description,"api_banking"},
+              {modules,['Elixir.ApiBanking','Elixir.ApiBanking.Application',
+                        'Elixir.ApiBanking.DebitController',
+                        'Elixir.ApiBanking.Router.Example',
+                        'Elixir.ApiBanking.Router.Register',
+                        'Elixir.ApiBanking.Router.Transaction',
+                        'Elixir.ApiBanking.TransferController']},
+              {registered,[]},
+              {vsn,"0.1.0"},
+              {mod,{'Elixir.ApiBanking.Application',[]}}]}.
