@@ -3,6 +3,7 @@ defmodule ApiBankingTest do
   doctest ApiBanking
 
   test "greets the world" do
-    assert ApiBanking.hello() == :world
+    retorno = ApiBanking.TransferController.transfer(nil)
+    retorno
   end
 end

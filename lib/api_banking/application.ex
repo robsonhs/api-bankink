@@ -2,7 +2,10 @@ defmodule ApiBanking.Application do
   use Application
 
   def start(_type, _args) do
+    import Supervisor.Spec
+
     children = [
+      supervisor(ApiBanking.Repo, []),
       {Plug.Cowboy, scheme: :http, plug: ApiBanking.Router.Example, options: [port: 8080]},
       {Plug.Cowboy, scheme: :http, plug: ApiBanking.Router.Register, options: [port: 8081]},
       {Plug.Cowboy, scheme: :http, plug: ApiBanking.Router.Transaction, options: [port: 8082]}
