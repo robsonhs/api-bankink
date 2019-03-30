@@ -1,6 +1,7 @@
 defmodule ApiBanking.Transfer do
     use Ecto.Schema
     import Ecto.Changeset
+    alias ApiBanking.Transfer
 
     schema "tb_transfer" do
         field(:debit_account, :integer)

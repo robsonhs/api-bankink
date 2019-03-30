@@ -25,7 +25,8 @@ defmodule ApiBanking.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:jason, "~> 1.0"},
       {:ecto, "~> 2.0"},
-      {:postgrex, "~> 0.11.2"}
+      {:postgrex, "~> 0.11.2"},
+      {:decimal, "~> 1.7"}
     ]
   end
 end
