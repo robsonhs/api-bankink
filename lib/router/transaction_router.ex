@@ -6,12 +6,14 @@ defmodule ApiBanking.Router.Transaction do
   plug(Plug.Parsers, parsers: [:json], pass: ["application/json"], json_decoder: Jason)
   plug(:dispatch)
 
-  post "/transaction/debits" do
-    IO.inspect(conn.body_params)
+  post "/transactions" do
+    
+    response = ApiBanking.DebitController.perform(conn.body_params)
 
     conn
     |> put_resp_content_type("application/json")
-    |> send_resp(200, Jason.encode!(%{path: "/transaction/debits"}))
+    |> send_resp(200, Jason.encode!(response))
+
   end
 
   post "/transaction/transfers" do
