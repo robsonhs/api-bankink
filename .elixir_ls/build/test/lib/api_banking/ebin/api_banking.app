@@ -8,7 +8,7 @@
                         'Elixir.ApiBanking.Application',
                         'Elixir.ApiBanking.DebitController',
                         'Elixir.ApiBanking.DebitCredit',
-                        'Elixir.ApiBanking.DebitRepo',
+                        'Elixir.ApiBanking.DebitCreditRepo',
                         'Elixir.ApiBanking.Repo',
                         'Elixir.ApiBanking.Router.Example',
                         'Elixir.ApiBanking.Router.Register',

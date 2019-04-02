@@ -17,19 +17,13 @@ defmodule ApiBanking.Router.Transaction do
   end
 
   post "/transaction/transfers" do
-    response = ApiBanking.TransferController.transfer(conn.body_params)
+    
+    response = ApiBanking.TransferController.perform(conn.body_params)
 
     conn
     |> put_resp_content_type("application/json")
     |> send_resp(200, Jason.encode!(response))
-  end
-
-  get "/transaction/balances/:account" do
-    IO.inspect(account)
-
-    conn
-    |> put_resp_content_type("application/json")
-    |> send_resp(200, Jason.encode!(%{path: "/transaction/balances/{account}"}))
+    
   end
 
   match _ do

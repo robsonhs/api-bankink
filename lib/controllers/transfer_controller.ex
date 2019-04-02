@@ -1,28 +1,28 @@
 defmodule ApiBanking.TransferController do
   alias ApiBanking.Repo
-  def transfer(request) do
-    IO.inspect(request)
-    IO.puts(request["debit_account"])
-    IO.puts("ApiBanking.TransferController.transfer")
 
-    changeset = %ApiBanking.Account{number_account: 6564860322, name_holder: "ROBSON HENRIQUE DA SILVA", document_holder: "07531035677", balance: 1000.0 }
+  def perform(request) do
 
- #   case Repo.insert(changeset) do
- #     {:ok, _account} -> IO.puts("SUCESS")
- #     {:error, _changeset} -> IO.puts("ERROR") 
- #   end 
+    operation_type = request["favored_bank_code"]
+    case operation_type do
+        "732" -> transfer(request)
+        _ -> ted(request)
+    end
+    
+  end
 
-   try do
-
-      Repo.insert(changeset)
-      %{:msg => "Account created sucessfully"}
-
-    rescue
-      e in Ecto.InvalidURLError -> %{:msg => "erro de url"}
-      e in Ecto.ConstraintError -> %{:msg => "Conta já cadastrada"}
-      e in RuntimeError -> %{:msg => "Erro desconhecido"}
-      _ -> %{:msg => "Error created sucessfully"}
-    end 
+  # transferencia (interna) não precisamos guardar informações do favorecido pois o favorecido é um outro cliente do próprio banco
+  # diferenciamos apenas o tipo de crédito e débito pois uma transferencia gerará um débito em uma conta e um crédito em outra
+  defp transfer(request) do
+    
+    ApiBanking.TransferRepo.perform(request)
 
   end
+
+  defp ted(request) do
+    
+    ApiBanking.DebitCreditRepo.performDebit(String.to_integer(request["debit_account"]),request["debit_amount"],"TED")
+
+  end
+
 end
