@@ -11,7 +11,23 @@ config :api_banking, ApiBanking.Repo,
   password: "mysecretpassword",
   hostname: "localhost"
 
-
+  config :api_banking, Guardian,
+    allowed_algos: ["HS512"],
+    verify_module: Guardian.JWT,
+    issuer: "api_banking",
+    ttl: { 1, :days },
+    allowed_drift: 2000,
+    verify_issuer: true,
+    secret_key: %{
+      "alg" => "ES512",
+      "crv" => "P-521",
+      "d" => "soEDCt7wqYp8Cifxkw5yVF2bsrDHhCK5ft4ja1GbrDRBWtsQE0Y0heUXs2fZp7jm-boVL4V6K9dB_t0Y5Zxyjgk",
+      "kty" => "EC",
+      "use" => "sig",
+      "x" => "AArBU-F9ErtoqwFcUJx7Bofb4JJX2AK5zp7m62GcNryILhRn3t-wStzNFEuSizw7Ta_cmkIxRA_5onMve4J9lkpq",
+      "y" => "AWgskACOts9kb664wjonu4xwZe1PsaTvpLT9CM64uUZGvQuMhckqS7_SWT68DSIagiCFXw1fJG6uXGDL8H78W8yL"
+    },
+    serializer: ApiBanking.Auth.Guardian
 
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this

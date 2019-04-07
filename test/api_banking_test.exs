@@ -23,9 +23,19 @@ defmodule ApiBankingTest do
     # IO.inspect(hd primeiro)
     # IO.inspect(hd(hd(response.rows)))
     # account_number = 6564860000
+    
+    # try do
+      
+    #   sql = "select perform_debit::bigint from perform_debit($1, $2, $3)"
+    #   response = Ecto.Adapters.SQL.query!(ApiBanking.Repo, sql, [6564860, 43.66, "d"])  
+    #   IO.inspect(hd(hd(response.rows)))
 
-    retorno = ApiBanking.TransactionDAO.insertCredit()
-    IO.inspect(retorno)
+    # rescue
+          
+    #   e in Postgrex.Error -> %{:msg => "Error while registering: " <> e.postgres.message, :httpCode => 422}
+    #   _ -> %{:msg => "Error", :httpCode => 500}
+
+    # end
 
   end
 end
