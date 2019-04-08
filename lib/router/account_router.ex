@@ -1,6 +1,6 @@
 defmodule ApiBanking.Router.Register do
   use Plug.Router
-  
+
   plug(:match)
   plug(Plug.Parsers, parsers: [:json], pass: ["application/json"], json_decoder: Jason)
   plug(:dispatch)
@@ -10,22 +10,21 @@ defmodule ApiBanking.Router.Register do
     response = ApiBanking.AccountController.findById(account)
 
     conn
-    |> put_resp_content_type("application/json")
-    |> send_resp(response.httpCode, Jason.encode!(response.balance))
+    |> put_resp_content_type(response.contentType)
+    |> send_resp(response.httpStatusCode, Jason.encode!(response.body))
     
   end
 
-  post "/accounts" do
+  post "/" do
     
     response = ApiBanking.AccountController.create(conn.body_params)
 
     conn
-    |> put_resp_content_type("application/json")
-    |> send_resp(response.httpCode, Jason.encode!(response.msg))
+    |> put_resp_content_type(response.contentType)
+    |> send_resp(response.httpStatusCode, Jason.encode!(response.body))
 
   end
 
-  match _ do
-    send_resp(conn, 404, "bateu aki")
-  end
+  match(_, do: send_resp(conn, 404, ""))
+
 end

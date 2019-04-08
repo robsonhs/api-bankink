@@ -12,19 +12,19 @@ defmodule ApiBanking.AccountController do
 
             if changeset.valid? do
                 
-                %{:msg => "Account created sucessfully",:httpCode => 201}
+                ApiBanking.Util.Response.build(201,%{:message => "Account created sucessfully"})
 
             else
                 
-                %{:msg => "Fields required: number_account", :httpCode => 422}
+                ApiBanking.Util.Response.build(422,%{:message => "Fields required: number_account"})
 
             end
       
           rescue
-           
-            e in Ecto.ConstraintError -> %{:msg => "Account already register", :httpCode => 409}
-            e in Postgrex.Error -> %{:msg => "Error while registering: " <> e.postgres.message, :httpCode => 422}
-            _ -> %{:msg => "Error", :httpCode => 500}
+            
+            e in Ecto.ConstraintError -> ApiBanking.Util.Response.build(409,%{:message => "Account already register"})
+            e in Postgrex.Error -> ApiBanking.Util.Response.build(422,%{:message => "Error while registering: " <> e.postgres.message})
+            _ -> ApiBanking.Util.Response.buildError(%{:message => "Balance inquiry service unavailable!"})
 
         end 
       
@@ -44,17 +44,17 @@ defmodule ApiBanking.AccountController do
 
             if firstItem != nil do
                 
-                %{:balance => Decimal.to_string(hd resultSet),:httpCode => 200}
+                ApiBanking.Util.Response.build(%{:balance => Decimal.to_string(hd resultSet)})
 
             else
                 
-                %{:msg => "Account not found",:httpCode => 200}
+                ApiBanking.Util.Response.build(404,%{:message => "Account not found"})
 
             end
 
         rescue
-
-            _ -> %{:msg => "Error", :httpCode => 500}
+            
+            _ -> ApiBanking.Util.Response.buildError(%{:message => "Balance inquiry service unavailable!"})
 
         end 
 

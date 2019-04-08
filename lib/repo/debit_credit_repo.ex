@@ -14,9 +14,23 @@ defmodule ApiBanking.DebitCreditRepo do
 
     defp perform(sql, number_account, amount, operation_type) do
         
-        response = Ecto.Adapters.SQL.query!(ApiBanking.Repo, sql, [number_account, amount, operation_type])                     
-        hd(hd(response.rows))
+        try do
+
+            response = Ecto.Adapters.SQL.query!(ApiBanking.Repo, sql, [number_account, amount, operation_type])                     
+            ApiBanking.Util.Response.build(%{:transaction_code => hd(hd(response.rows))})
+
+        rescue
+            
+            e in _ ->   case e.postgres.message do
+                            "account not found" -> ApiBanking.Util.Response.build(409,%{:message => e.postgres.message})
+                            "insufficient balance" -> ApiBanking.Util.Response.build(412,%{:message => e.postgres.message})
+                            _ -> ApiBanking.Util.Response.build(500,%{:message => e.postgres.message})
+                        end
+                        
+        end
 
     end
 
 end
+
+#valor maior do quero

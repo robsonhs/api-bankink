@@ -1,11 +1,46 @@
 defmodule ApiBanking.Util.Response do
     
-    def response(conn, httpStatusCode) do
-        Plug.Conn.send_res(conn, httpStatusCode,"")
+    defstruct httpStatusCode: 200,
+              contentType: "application/json",
+              body: nil
+
+    def build(body) do
+
+        %ApiBanking.Util.Response{body: body}
+
+    end
+    def build(httpStatusCode, body) do
+
+        %ApiBanking.Util.Response{httpStatusCode: httpStatusCode, body: body}
+
+    end
+    def build(httpStatusCode, contentType, body) do
+
+        %ApiBanking.Util.Response{httpStatusCode: httpStatusCode, contentType: contentType, body: body}
+
+    end
+    def buildError(body) do
+
+        %ApiBanking.Util.Response{httpStatusCode: 500, body: body}
+
     end
 
-    def response(conn, httpStatusCode, msg) do
-        Plug.Conn.send_res(conn, httpStatusCode,msg)
+    def buildBadReques do
+
+        %ApiBanking.Util.Response{httpStatusCode: 400, body: %{:message => "bad request"}}
+
+    end
+
+    def buildNotFound do
+
+        %ApiBanking.Util.Response{httpStatusCode: 404, body: %{:message => "not found"}}
+
+    end
+
+    def buildUnauthorized do
+
+        %ApiBanking.Util.Response{httpStatusCode: 401, body: %{:message => "unauthorized"}}
+
     end
 
 end

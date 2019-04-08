@@ -5,9 +5,7 @@ defmodule ApiBanking.Router do
   plug(:dispatch)
 
   forward "/auth/token", to: ApiBanking.Router.AuthToken
-  forward "/accounts", to: ApiBanking.Router.Register 
-  forward "/register", to: ApiBanking.Router.Register 
-  forward "/transactions", to: ApiBanking.Router.Transaction
+  forward "/api", to: ApiBanking.Router.Auth 
   
   match(_, do: send_resp(conn, 404, ""))
 

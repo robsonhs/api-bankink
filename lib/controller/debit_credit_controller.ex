@@ -6,7 +6,7 @@ defmodule ApiBanking.DebitController do
         case String.upcase(operation_type) do
             "D" -> debit(request)
             "C" -> credit(request)
-            _ -> %{:msg => "Nem crédito nem débito"}
+            _ -> ApiBanking.Util.Response.buildBadReques()
         end
         
     end

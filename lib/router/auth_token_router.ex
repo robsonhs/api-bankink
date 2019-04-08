@@ -9,26 +9,23 @@ defmodule ApiBanking.Router.AuthToken do
 
         if conn.body_params["grant_type"] === "client_credentials" do
             
-            result = ApiBanking.Controller.User.sing_in(conn)
-            IO.inspect(result)
+            response = ApiBanking.Controller.User.sing_in(conn)
 
             conn
-            |> put_resp_content_type("application/json")
-            |> send_resp(200,"")
+            |> put_resp_content_type(response.contentType)
+            |> send_resp(response.httpStatusCode,Jason.encode!(response.body))
 
         else
            
+            response = ApiBanking.Util.Response.buildBadReques()
             conn
-            |> send_resp(400,"")
+            |> put_resp_content_type(response.contentType)
+            |> send_resp(response.httpStatusCode,Jason.encode!(response.body))
 
         end
 
     end
 
-    match _ do
-        
-        send_resp(conn, 404, "bateu aki")
-
-    end
+    match(_, do: send_resp(conn, 404, ""))
 
 end
