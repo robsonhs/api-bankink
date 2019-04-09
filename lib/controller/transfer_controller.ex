@@ -1,4 +1,4 @@
-defmodule ApiBanking.TransferController do
+defmodule ApiBanking.Controller.Transfer do
 
   def perform(request) do
 
@@ -12,13 +12,13 @@ defmodule ApiBanking.TransferController do
 
   defp transfer(request) do
     
-    ApiBanking.TransferRepo.performTransfer(request)
+    ApiBanking.Repo.Transfer.performTransfer(request)
 
   end
 
   defp ted(request) do
     
-    ApiBanking.TransferRepo.performTed(request)
+    ApiBanking.Repo.Transfer.performTed(request)
 
   end
 

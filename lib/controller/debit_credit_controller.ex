@@ -1,4 +1,4 @@
-defmodule ApiBanking.DebitController do
+defmodule ApiBanking.Controller.DebitCredit do
 
     def perform(request) do
        
@@ -13,13 +13,13 @@ defmodule ApiBanking.DebitController do
 
     defp credit(request) do
       
-        ApiBanking.DebitCreditRepo.performCredit(String.to_integer(request["number_account"]),request["amount"],request["operation_type"])
+        ApiBanking.Repo.DebitCredit.performCredit(String.to_integer(request["number_account"]),request["amount"],request["operation_type"])
 
     end
 
     defp debit(request) do
         
-        ApiBanking.DebitCreditRepo.performDebit(String.to_integer(request["number_account"]),request["amount"],request["operation_type"])
+        ApiBanking.Repo.DebitCredit.performDebit(String.to_integer(request["number_account"]),request["amount"],request["operation_type"])
 
     end
 

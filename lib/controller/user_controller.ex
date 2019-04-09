@@ -1,5 +1,6 @@
 defmodule ApiBanking.Controller.User do
 
+  @spec sing_in(atom() | %{body_params: any()}) :: ApiBanking.Util.Response.t()
   def sing_in(conn) do
     case authenticate(conn.body_params) do
       
@@ -11,10 +12,24 @@ defmodule ApiBanking.Controller.User do
       _ ->  ApiBanking.Util.Response.buildUnauthorized()
 
     end
+
   end
 
   defp authenticate(%{"client_id" => username, "client_secret" => password}) do
-    ApiBanking.Auth.Security.autenticate(username, password)
+    
+    credentials = ApiBanking.Repo.User.findByIdCredentials(username)
+        
+    if password == credentials.password do
+        
+        credentials = %ApiBanking.Credentials{credentials | password: nil}
+        {:ok, credentials}
+
+    else
+        
+        {:error}    
+
+    end
+    
   end
 
   defp authenticate(_), do: :error

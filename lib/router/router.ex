@@ -4,8 +4,8 @@ defmodule ApiBanking.Router do
   plug(:match)
   plug(:dispatch)
 
-  forward "/auth/token", to: ApiBanking.Router.AuthToken
-  forward "/api", to: ApiBanking.Router.Auth 
+  forward "/auth/token", to: ApiBanking.Router.Authentication
+  forward "/api", to: ApiBanking.Router.Authorization 
   
   match(_, do: send_resp(conn, 404, ""))
 

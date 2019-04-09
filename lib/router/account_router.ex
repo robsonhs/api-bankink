@@ -1,4 +1,4 @@
-defmodule ApiBanking.Router.Register do
+defmodule ApiBanking.Router.Account do
   use Plug.Router
 
   plug(:match)
@@ -7,7 +7,7 @@ defmodule ApiBanking.Router.Register do
 
   get "/:account/balance" do
     
-    response = ApiBanking.AccountController.findById(account)
+    response = ApiBanking.Controller.Account.findById(account)
 
     conn
     |> put_resp_content_type(response.contentType)
@@ -17,7 +17,7 @@ defmodule ApiBanking.Router.Register do
 
   post "/" do
     
-    response = ApiBanking.AccountController.create(conn.body_params)
+    response = ApiBanking.Controller.Account.create(conn.body_params)
 
     conn
     |> put_resp_content_type(response.contentType)

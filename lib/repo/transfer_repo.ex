@@ -1,4 +1,4 @@
-defmodule ApiBanking.TransferRepo do
+defmodule ApiBanking.Repo.Transfer do
     
     def performTransfer(request) do
        

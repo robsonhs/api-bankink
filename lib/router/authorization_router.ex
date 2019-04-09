@@ -1,4 +1,4 @@
-defmodule ApiBanking.Router.Auth do
+defmodule ApiBanking.Router.Authorization do
     use Plug.Router
  
     @claims %{typ: "access"}
@@ -13,8 +13,9 @@ defmodule ApiBanking.Router.Auth do
     plug(Plug.Parsers, parsers: [:json], pass: ["application/json"], json_decoder: Jason)
     plug(:dispatch)
 
-    forward "/accounts", to: ApiBanking.Router.Register
+    forward "/accounts", to: ApiBanking.Router.Account
     forward "/transactions", to: ApiBanking.Router.Transaction
+    forward "/report", to: ApiBanking.Router.Report
 
     match(_, do: send_resp(conn, 404, ""))
 

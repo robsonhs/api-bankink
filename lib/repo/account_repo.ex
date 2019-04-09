@@ -1,4 +1,4 @@
-defmodule ApiBanking.AccountRepo do
+defmodule ApiBanking.Repo.Account do
     alias ApiBanking.Repo
 
     def create(request) do

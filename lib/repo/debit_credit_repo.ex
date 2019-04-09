@@ -1,4 +1,4 @@
-defmodule ApiBanking.DebitCreditRepo do
+defmodule ApiBanking.Repo.DebitCredit do
     
     def performCredit(number_account, amount, operation_type) do
        
@@ -32,5 +32,3 @@ defmodule ApiBanking.DebitCreditRepo do
     end
 
 end
-
-#valor maior do quero

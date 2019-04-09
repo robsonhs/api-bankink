@@ -1,4 +1,4 @@
-defmodule ApiBanking.AccountController do
+defmodule ApiBanking.Controller.Account do
     alias ApiBanking.Repo
     import Ecto.Query, only: [from: 2]
 

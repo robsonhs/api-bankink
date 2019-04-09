@@ -6,7 +6,7 @@ defmodule ApiBanking.Repo.User do
     def findByIdCredentials(username) do
         
         user = Repo.get(ApiBanking.User, username);
-        ApiBanking.Auth.Credentials.build(user)
+        ApiBanking.Credentials.build(user)
 
     end
 

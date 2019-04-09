@@ -8,7 +8,7 @@ defmodule ApiBanking.Router.Transaction do
 
   post "/" do
     
-    response = ApiBanking.DebitController.perform(conn.body_params)
+    response = ApiBanking.Controller.DebitCredit.perform(conn.body_params)
 
     conn
     |> put_resp_content_type(response.contentType)
@@ -18,7 +18,7 @@ defmodule ApiBanking.Router.Transaction do
 
   post "/transfer" do
     
-    response = ApiBanking.TransferController.perform(conn.body_params)
+    response = ApiBanking.Controller.Transfer.perform(conn.body_params)
 
     conn
     |> put_resp_content_type(response.contentType)

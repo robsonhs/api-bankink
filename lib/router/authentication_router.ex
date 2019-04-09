@@ -1,4 +1,4 @@
-defmodule ApiBanking.Router.AuthToken do
+defmodule ApiBanking.Router.Authentication do
     use Plug.Router
 
     plug(:match)
