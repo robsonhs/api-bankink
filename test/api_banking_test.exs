@@ -2,6 +2,8 @@ defmodule ApiBankingTest do
   use ExUnit.Case
   doctest ApiBanking
   
+  defstruct operation_type: nil, quantity: nil, amount: nil
+
   test "greets the world" do
     # retorno = ApiBanking.AccountController.create(%{
     #   "document_holder" => "49994949",
@@ -36,6 +38,20 @@ defmodule ApiBankingTest do
     #   _ -> %{:msg => "Error", :httpCode => 500}
 
     # end
+
+    # test = "2019-04"
+    # test = String.split(test, "-")
+    # test = hd test
+    # test = String.to_integer(test)
+    # IO.inspect(test)
+    # #IO.puts(test[0])
+
+    #IO.puts(Date.from_iso8601!("2017-02-22"))
+
+   
+    
+    result = Poison.decode!(~s({"people": [{"operation_type": "TED", "quantitu": 54, "amount": 456.77} ]}),as: %{"people" => [%ApiBankingTest{}]})
+    IO.puts(result)
 
   end
 end

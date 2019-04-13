@@ -15,7 +15,7 @@ defmodule ApiBanking.Router.Authorization do
 
     forward "/accounts", to: ApiBanking.Router.Account
     forward "/transactions", to: ApiBanking.Router.Transaction
-    forward "/report", to: ApiBanking.Router.Report
+    forward "/reports", to: ApiBanking.Router.Report
 
     match(_, do: send_resp(conn, 404, ""))
 

@@ -1,5 +1,5 @@
 defmodule ApiBanking.Util.Response do
-    
+
     defstruct httpStatusCode: 200,
               contentType: "application/json",
               body: nil
