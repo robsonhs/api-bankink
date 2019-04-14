@@ -28,7 +28,8 @@ defmodule ApiBanking.MixProject do
       {:postgrex, "~> 0.14.0"},
       {:decimal, "~> 1.7"},
       {:guardian, "~> 1.2"},
-      {:jose, "~> 1.9"}
+      {:jose, "~> 1.9"},
+      {:misc_random, "~> 0.2.6"}
     ]
   end
 end

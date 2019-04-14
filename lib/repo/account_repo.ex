@@ -4,7 +4,7 @@ defmodule ApiBanking.Repo.Account do
     def create(request) do
         
         changeset = %ApiBanking.Account{
-                        number_account: request["number_account"], 
+                        account_number: request["account_number"], 
                         name_holder: request["name_holder"], 
                         document_holder: request["document_holder"], 
                         balance: 1000.0 

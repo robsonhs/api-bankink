@@ -3,7 +3,7 @@ defmodule ApiBanking.Account do
   import Ecto.Changeset 
   alias ApiBanking.Account
 
-  @primary_key {:number_account,  :integer, autogenerate: false}
+  @primary_key {:account_number,  :integer, autogenerate: false}
 
   schema "tb_account" do
     field(:name_holder, :string)
@@ -13,8 +13,8 @@ defmodule ApiBanking.Account do
 
   def changeset(%Account{} = account, attrs) do
     account
-    |> cast(attrs, [:number_account, :name_holder, :document_holder, :balance])
-    |> validate_required([:number_account,:balance])
+    |> cast(attrs, [:account_number, :name_holder, :document_holder, :balance])
+    |> validate_required([:account_number,:balance])
   end
 
 end

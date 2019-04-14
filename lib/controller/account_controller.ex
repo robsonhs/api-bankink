@@ -5,14 +5,17 @@ defmodule ApiBanking.Controller.Account do
     def create(request) do
         
         try do
-
+            
+            account_number = Misc.Random.number(8)
+            request = Map.put(request,"account_number", account_number)
             request = Map.put(request,"balance","1000.0")
+            IO.inspect(request)
             changeset = ApiBanking.Account.changeset(%ApiBanking.Account{},request)
             Repo.insert(changeset)
 
             if changeset.valid? do
                 
-                ApiBanking.Util.Response.build(201,%{:message => "Account created sucessfully"})
+                ApiBanking.Util.Response.build(201,%{:account_number => account_number})
 
             else
                 
@@ -30,12 +33,12 @@ defmodule ApiBanking.Controller.Account do
       
     end
 
-    def findById(number_account) do
+    def checkBalance(account_number) do
 
         try do
 
             query = from u in "tb_account",
-                    where: u.number_account == ^String.to_integer(number_account),
+                    where: u.account_number == ^String.to_integer(account_number),
                     select: u.balance
 
             resultSet = Repo.all(query)
@@ -54,7 +57,7 @@ defmodule ApiBanking.Controller.Account do
 
         rescue
             
-            _ -> ApiBanking.Util.Response.buildError(%{:message => "Balance inquiry service unavailable!"})
+            e in _ -> ApiBanking.Util.Response.buildError(%{:message => "Balance inquiry service unavailable!" <> e.postgres.message})
 
         end 
 

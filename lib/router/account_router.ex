@@ -7,7 +7,7 @@ defmodule ApiBanking.Router.Account do
 
   get "/:account/balance" do
     
-    response = ApiBanking.Controller.Account.findById(account)
+    response = ApiBanking.Controller.Account.checkBalance(account)
 
     conn
     |> put_resp_content_type(response.contentType)

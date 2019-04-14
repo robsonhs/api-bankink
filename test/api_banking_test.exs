@@ -48,10 +48,5 @@ defmodule ApiBankingTest do
 
     #IO.puts(Date.from_iso8601!("2017-02-22"))
 
-   
-    
-    result = Poison.decode!(~s({"people": [{"operation_type": "TED", "quantitu": 54, "amount": 456.77} ]}),as: %{"people" => [%ApiBankingTest{}]})
-    IO.puts(result)
-
   end
 end
