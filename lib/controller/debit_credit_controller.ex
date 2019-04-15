@@ -1,5 +1,12 @@
 defmodule ApiBanking.Controller.DebitCredit do
+    @moduledoc """
+        Provides functions perform/1 to carry out debit and credit transactions
+    """
 
+    @doc """
+        Responsible for validating the value and type of transaction and delegating to debit or credit function
+    """
+    @spec perform(nil | keyword() | map()) :: ApiBanking.Util.Response.t()
     def perform(request) do
 
         if request["amount"] > 0 do
@@ -17,7 +24,7 @@ defmodule ApiBanking.Controller.DebitCredit do
         end
         
     end
-
+    
     defp credit(request) do
       
         ApiBanking.Repo.DebitCredit.performCredit(String.to_integer(request["account_number"]),request["amount"],request["operation_type"])

@@ -1,7 +1,14 @@
 defmodule ApiBanking.Controller.Account do
+    @moduledoc """
+        Provides functions create/1 and checkBalance/1 to account registration and balance inquiry
+    """ 
     alias ApiBanking.Repo
     import Ecto.Query, only: [from: 2]
 
+    @doc """
+        Responsible role in creating an account, generating a random account number, and handling the exeções in eventual errors.
+    """
+    @spec create(%{}) :: ApiBanking.Util.Response.t()
     def create(request) do
         
         try do
@@ -33,6 +40,10 @@ defmodule ApiBanking.Controller.Account do
       
     end
 
+    @doc """
+        Responsible for getting the balance from an account number
+    """
+    @spec checkBalance(String.t()) :: ApiBanking.Util.Response.t()
     def checkBalance(account_number) do
 
         try do

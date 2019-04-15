@@ -1,5 +1,13 @@
 defmodule ApiBanking.Controller.User do
+    @moduledoc """
+        Provides functions sing_in/1 to perform the authentication of a user
+    """
 
+  @doc """
+    Responsible for authenticating a user, obtains the user from the database, 
+    validates the password and generates a token for access
+  """
+  @spec sing_in(atom() | %{body_params: any()}) :: ApiBanking.Util.Response.t()
   def sing_in(conn) do
     case authenticate(conn.body_params) do
       

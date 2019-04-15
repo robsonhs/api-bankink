@@ -1,5 +1,13 @@
 defmodule ApiBanking.Controller.Report do
-    
+    @moduledoc """
+        Provides functions search/1 for annual, monthly or daily report extraction
+    """
+
+    @doc """
+        Responsible for processing report requests, assembling the sqls according to the report 
+        type and delegating to private functions to compose the sqls according to the filter
+    """
+    @spec search(%{}) :: ApiBanking.Util.Response.t()
     def search(request) do
  
         case request["type"] do

@@ -1,5 +1,13 @@
 defmodule ApiBanking.Controller.Transfer do
+  @moduledoc """
+      Provides functions perform/1 to perform transfer and ted
+  """
 
+  @doc """
+    Responsible for validating the request, identifying whether it is a transfer 
+    or a ted and delegating to its private function.
+  """
+  @spec perform(%{}) :: ApiBanking.Util.Response.t()
   def perform(request) do
 
     if validateRequest(request) do
