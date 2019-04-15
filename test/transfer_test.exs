@@ -28,7 +28,6 @@ defmodule ApiBanking.Test.Transfer do
                     }
 
         response = ApiBanking.Controller.Transfer.perform(request)
-
         assert response.httpStatusCode == 200
 
     end
@@ -55,7 +54,6 @@ defmodule ApiBanking.Test.Transfer do
                     }
 
         response = ApiBanking.Controller.Transfer.perform(request)
-
         assert response.httpStatusCode == 200
 
     end
@@ -86,7 +84,6 @@ defmodule ApiBanking.Test.Transfer do
                     }
 
         response = ApiBanking.Controller.Transfer.perform(request)
-
         assert response.httpStatusCode == 400
 
     end
@@ -113,7 +110,6 @@ defmodule ApiBanking.Test.Transfer do
                     }
 
         response = ApiBanking.Controller.Transfer.perform(request)
-
         assert response.httpStatusCode == 400
 
     end
@@ -140,7 +136,6 @@ defmodule ApiBanking.Test.Transfer do
                     }
 
         response = ApiBanking.Controller.Transfer.perform(request)
-
         assert response.httpStatusCode == 412
 
     end
@@ -171,7 +166,6 @@ defmodule ApiBanking.Test.Transfer do
                     }
 
         response = ApiBanking.Controller.Transfer.perform(request)
-
         assert response.httpStatusCode == 412
 
     end
@@ -199,7 +193,6 @@ defmodule ApiBanking.Test.Transfer do
                     }
 
         response = ApiBanking.Controller.Transfer.perform(request)
-
         assert response.httpStatusCode == 404
 
     end

@@ -49,8 +49,7 @@ defmodule ApiBanking.Test.Account do
         account = Integer.to_string(account)
         response = ApiBanking.Controller.Account.checkBalance(account)
 
-         IO.inspect(response)
-         assert response.httpStatusCode == 200 
+        assert response.httpStatusCode == 200 
 
      end
 

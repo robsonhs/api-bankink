@@ -1,7 +1,7 @@
 defmodule ApiBanking.Controller.Report do
     
     def search(request) do
-
+ 
         case request["type"] do
             "analytical" -> buildSQL(request, 
                                      "select   
@@ -35,7 +35,7 @@ defmodule ApiBanking.Controller.Report do
         case request["filter"] do
             "year" ->  buildSQLYear(request, preCondition, posCondition)
             "month" ->  buildSQLMonth(request, preCondition, posCondition)
-            "date" -> buildSQLDay(request, preCondition, posCondition)
+            "day" -> buildSQLDay(request, preCondition, posCondition)
             _ -> ApiBanking.Util.Response.build(400,%{:message => "filter is year, month or day"})  
         end
 
