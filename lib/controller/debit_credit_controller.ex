@@ -6,7 +6,7 @@ defmodule ApiBanking.Controller.DebitCredit do
     @doc """
         Responsible for validating the value and type of transaction and delegating to debit or credit function
     """
-    @spec perform(nil | keyword() | map()) :: ApiBanking.Util.Response.t()
+    @spec perform(%{}) :: ApiBanking.Util.Response.t()
     def perform(request) do
 
         if request["amount"] > 0 do

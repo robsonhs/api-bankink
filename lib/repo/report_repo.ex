@@ -1,5 +1,12 @@
 defmodule ApiBanking.Repo.Report do
-    
+    @moduledoc """
+        Provides function search/2 for extracting reports
+    """
+
+    @doc """
+        Responsible for extracting reports, executing the query and converting to json
+    """
+    @spec search(String.t()) :: ApiBanking.Util.Response.t()
     def search(sql,params \\ []) do
         
         try do

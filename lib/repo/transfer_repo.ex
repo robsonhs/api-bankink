@@ -1,5 +1,12 @@
 defmodule ApiBanking.Repo.Transfer do
-    
+    @moduledoc """
+        Provides functions performTransfer/1 and performTed/1 to carry out transfer and Ted
+    """
+
+    @doc """
+        Responsible for the transfer, runs the debit in one account and the credit in another
+    """
+    @spec performTransfer(%{}) :: ApiBanking.Util.Response.t()
     def performTransfer(request) do
        
         try do
@@ -25,6 +32,10 @@ defmodule ApiBanking.Repo.Transfer do
 
     end
 
+    @doc """
+        Responsible for performing ted, execute the debit in an account and register transfer
+    """
+    @spec performTed(%{}) :: ApiBanking.Util.Response.t()
     def performTed(request) do
        
         try do

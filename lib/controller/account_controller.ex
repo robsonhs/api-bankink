@@ -16,12 +16,12 @@ defmodule ApiBanking.Controller.Account do
             account_number = Misc.Random.number(8)
             request = Map.put(request,"account_number", account_number)
             request = Map.put(request,"balance","1000.0")
-            IO.inspect(request)
             changeset = ApiBanking.Account.changeset(%ApiBanking.Account{},request)
             Repo.insert(changeset)
 
             if changeset.valid? do
                 
+                ApiBanking.Repo.DebitCredit.performCredit(account_number,1000.0,"C")
                 ApiBanking.Util.Response.build(201,%{:account_number => account_number})
 
             else
