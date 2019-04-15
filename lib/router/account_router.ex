@@ -1,4 +1,8 @@
 defmodule ApiBanking.Router.Account do
+    @moduledoc """
+        Provides resources about account create and balance
+    """ 
+
   use Plug.Router
 
   plug(:match)

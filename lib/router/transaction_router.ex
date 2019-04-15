@@ -1,4 +1,8 @@
 defmodule ApiBanking.Router.Transaction do
+    @moduledoc """
+        Provides resources transactions debit, credit and transfer
+    """ 
+
   use Plug.Router
 
   plug(Plug.Logger)

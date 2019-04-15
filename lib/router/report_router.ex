@@ -1,4 +1,7 @@
 defmodule ApiBanking.Router.Report do
+    @moduledoc """
+        Provides resources about report
+    """ 
     use Plug.Router
 
     plug(:match)

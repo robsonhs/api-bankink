@@ -1,4 +1,8 @@
 defmodule ApiBanking.Router.Authorization do
+    @moduledoc """
+        Provides resources privates and perform authorization
+    """ 
+    
     use Plug.Router
  
     @claims %{typ: "access"}
