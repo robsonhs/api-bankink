@@ -15,7 +15,7 @@ defmodule ApiBanking.Repo.Transfer do
             rescue
             
                 e in _ ->   case e.postgres.message do
-                                "account not found" -> ApiBanking.Util.Response.build(409,%{:message => e.postgres.message})
+                                "account not found" -> ApiBanking.Util.Response.build(404,%{:message => e.postgres.message})
                                 "insufficient balance" -> ApiBanking.Util.Response.build(412,%{:message => e.postgres.message})
                                 _ -> ApiBanking.Util.Response.build(500,%{:message => e.postgres.message})
                             end
@@ -47,7 +47,7 @@ defmodule ApiBanking.Repo.Transfer do
         rescue
             
             e in _ ->   case e.postgres.message do
-                            "account not found" -> ApiBanking.Util.Response.build(409,%{:message => e.postgres.message})
+                            "account not found" -> ApiBanking.Util.Response.build(404,%{:message => e.postgres.message})
                             "insufficient balance" -> ApiBanking.Util.Response.build(412,%{:message => e.postgres.message})
                             _ -> ApiBanking.Util.Response.build(500,%{:message => e.postgres.message})
                         end

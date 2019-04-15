@@ -19,7 +19,7 @@ defmodule ApiBanking.Controller.Account do
 
             else
                 
-                ApiBanking.Util.Response.build(422,%{:message => "Fields required: number_account"})
+                ApiBanking.Util.Response.build(400,%{:message => "Fields required: number_account"})
 
             end
       
