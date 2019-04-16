@@ -81,7 +81,7 @@ O modelo de dados desta API é composto de: <br/>
 <img width="496" alt="Screen Shot 2019-04-16 at 06 15 22" src="https://user-images.githubusercontent.com/4596229/56197387-1aaf9000-600f-11e9-80bb-16d33c43f65e.png">
 
 ## API REST
-Para expor nossos serviços utilizamos o estilo arquitetural [REST].(https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm) Para proteção de nossa API utilizamos autenticação via JWT, o token terá validade de 1 hora. 
+Para expor nossos serviços utilizamos o estilo arquitetural [REST](https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm). Para proteção de nossa API utilizamos autenticação via JWT, o token terá validade de 1 hora. 
 
 Credenciais de acesso:
    username: admin
@@ -90,19 +90,27 @@ Credenciais de acesso:
 * Endpoints
    * (Post) /auth/token <br/>
      Provém recurso responsável pela autenticação
-     
+     <img width="411" alt="Screen Shot 2019-04-16 at 07 51 31" src="https://user-images.githubusercontent.com/4596229/56204400-b9db8400-601d-11e9-9afa-30db03161ad4.png">
+
    * (Post) /api/accounts <br/>
      Provém recurso responsável pela criação de uma conta
-     
+     <img width="412" alt="Screen Shot 2019-04-16 at 07 51 57" src="https://user-images.githubusercontent.com/4596229/56204381-ab8d6800-601d-11e9-9505-af7f6a663586.png">
+
    * (Get) api/accounts/{account_number}/balance <br/>
      Provém recurso responsável por retornar o saldo para uma determinada conta
-     
+     <img width="412" alt="Screen Shot 2019-04-16 at 07 54 40" src="https://user-images.githubusercontent.com/4596229/56204341-94e71100-601d-11e9-9cee-a3176106283d.png">
+
    * (Post) /api/transactions <br/>
      Provém recurso responsável por executar débito(saque) e crédito(Estorno) em uma determinada conta
-     
+     <img width="412" alt="Screen Shot 2019-04-16 at 07 54 59" src="https://user-images.githubusercontent.com/4596229/56204307-83056e00-601d-11e9-9f53-5ba6ed131376.png">
+
    * (Post) /api/transactions/transfer <br/>
      Provém recurso responsável por realizar transferência e ted em uma determinada conta
-     
+     <img width="412" alt="Screen Shot 2019-04-16 at 07 55 37" src="https://user-images.githubusercontent.com/4596229/56204270-69fcbd00-601d-11e9-9dc9-d9cef6b55f8f.png">
+
    * (Get) /api/reports/transaction <br/>
      Provém recurso responsável por extração de relatórios
-   *
+     <img width="413" alt="Screen Shot 2019-04-16 at 07 56 13" src="https://user-images.githubusercontent.com/4596229/56204238-57828380-601d-11e9-8f6f-b9bf7f3ac2ce.png">
+
+ [**Documentação da API**](https://documenter.getpostman.com/view/3564642/S1ENzzQY)
+
