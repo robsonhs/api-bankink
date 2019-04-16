@@ -67,3 +67,14 @@ O aplicativo foi estruturado de modo a segregar os módulos em router, controlle
     Responsável em executar sql's para extração de relatórios sobre as movimentações de uma conta
   
     <img width="670" alt="Screen Shot 2019-04-15 at 22 39 53" src="https://user-images.githubusercontent.com/4596229/56191048-f6998200-6001-11e9-98c5-04b0595c95e3.png">
+
+## Modelo de dados
+O modelo de dados desta API é composto de:
+   * tb_acount
+     
+   * tb_movements
+   
+   * tb_transfer
+   
+   * tb_user
+   
