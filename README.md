@@ -70,11 +70,16 @@ O aplicativo foi estruturado de modo a segregar os módulos em router, controlle
 
 ## Modelo de dados
 O modelo de dados desta API é composto de:
-   * tb_acount
-     
-   * tb_movements
-   
-   * tb_transfer
-   
-   * tb_user
+   * tb_acount <br/>
+<img width="204" alt="Screen Shot 2019-04-16 at 05 56 44" src="https://user-images.githubusercontent.com/4596229/56196238-d02d1400-600c-11e9-94b7-df1eed55a230.png">
+
+   * tb_movements <br/>
+<img width="202" alt="Screen Shot 2019-04-16 at 05 57 31" src="https://user-images.githubusercontent.com/4596229/56196361-12565580-600d-11e9-814d-7fed4ea36651.png">
+
+   * tb_transfer <br/>
+<img width="203" alt="Screen Shot 2019-04-16 at 05 57 48" src="https://user-images.githubusercontent.com/4596229/56196473-46317b00-600d-11e9-9276-c9436d7d688a.png">
+
+   * tb_user <br/>
+<img width="198" alt="Screen Shot 2019-04-16 at 05 57 06" src="https://user-images.githubusercontent.com/4596229/56196300-f5ba1d80-600c-11e9-9872-e914b7c4ac3a.png">
+
    
