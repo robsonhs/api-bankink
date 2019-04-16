@@ -69,17 +69,15 @@ O aplicativo foi estruturado de modo a segregar os módulos em router, controlle
     <img width="670" alt="Screen Shot 2019-04-15 at 22 39 53" src="https://user-images.githubusercontent.com/4596229/56191048-f6998200-6001-11e9-98c5-04b0595c95e3.png">
 
 ## Modelo de dados
-O modelo de dados desta API é composto de:
-   * tb_acount <br/>
-<img width="204" alt="Screen Shot 2019-04-16 at 05 56 44" src="https://user-images.githubusercontent.com/4596229/56196238-d02d1400-600c-11e9-94b7-df1eed55a230.png">
-
-   * tb_movements <br/>
-<img width="202" alt="Screen Shot 2019-04-16 at 05 57 31" src="https://user-images.githubusercontent.com/4596229/56196361-12565580-600d-11e9-814d-7fed4ea36651.png">
-
-   * tb_transfer <br/>
-<img width="203" alt="Screen Shot 2019-04-16 at 05 57 48" src="https://user-images.githubusercontent.com/4596229/56196473-46317b00-600d-11e9-9276-c9436d7d688a.png">
-
-   * tb_user <br/>
-<img width="198" alt="Screen Shot 2019-04-16 at 05 57 06" src="https://user-images.githubusercontent.com/4596229/56196300-f5ba1d80-600c-11e9-9872-e914b7c4ac3a.png">
+O modelo de dados desta API é composto de: <br/>
+* tb_account <br/>
+  Possui informações da conta e o saldo desta (este projeto não está utilizando [CQRS](https://martinfowler.com/bliki/CQRS.html)) <br/>
+* tb_movements <br/>
+  Possui todos os fatos ocorridos sobre o saldo de uma conta <br/>
+* tb_transfer <br/>
+  Possui as transferências para outros bancos (ted) com as informações do favorecido <br/>
+* tb_user <br/>
+  Possui as credenciais de acesso a API <br/>
+<img width="496" alt="Screen Shot 2019-04-16 at 06 15 22" src="https://user-images.githubusercontent.com/4596229/56197387-1aaf9000-600f-11e9-80bb-16d33c43f65e.png">
 
    
