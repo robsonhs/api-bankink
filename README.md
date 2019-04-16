@@ -1,21 +1,9 @@
-# ApiBanking
+# API BANKING
 
-**TODO: Add description**
 
-## Installation
+## Aplicação
+Este aplicativo foi desenvolvido utilizando a linguagem funcional [Elixir](https://elixir-lang.org/) com o objetivo de prover serviços financeiros por meio de uma API REST. Para desenvolvimento deste aplicativo foi utilizado alguns dos principais modulos do Elixir como [Plug](https://hexdocs.pm/plug/readme.html), [Ecto](https://hexdocs.pm/ecto/Ecto.html) e [Guardian](https://hexdocs.pm/guardian/Guardian.html). Para armazenamento de dados foi utilizado [PostgreSQL](https://www.postgresql.org/).
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `api_banking` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:api_banking, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/api_banking](https://hexdocs.pm/api_banking).
+## Estrutura
+O aplicativo foi estruturado de modo a segregar os módulos em router, controller, model e repo.
 
