@@ -116,13 +116,12 @@ Credenciais de acesso:
 
 ## Execução
 Para realizar o empacotamento e o deployment da aplicação foi utilizado [Distillery](https://hexdocs.pm/distillery/home.html).
-No folder [docker](https://github.com/robsonhs/api-bankink/tree/master/docker) temos o [docker compose](https://github.com/robsonhs/api-bankink/blob/master/docker/api-banking.yml) e dois subfolders [app](https://github.com/robsonhs/api-bankink/tree/master/docker/app) e [bd](https://github.com/robsonhs/api-bankink/tree/master/docker/bd), no folder [bd](https://github.com/robsonhs/api-bankink/tree/master/docker/bd) temos o [dockerfile](https://github.com/robsonhs/api-bankink/blob/master/docker/bd/Dockerfile) referente a criação da base de dados e o [script inicial](https://github.com/robsonhs/api-bankink/blob/master/docker/bd/initial-charge.sql) para criação das tabelas, functions e carga. No folder [app](https://github.com/robsonhs/api-bankink/tree/master/docker/app) temos o [dockerfile](https://github.com/robsonhs/api-bankink/blob/master/docker/app/Dockerfile) que constroi a imagem da aplicação.
 
 Executando via Docker Compose:
 ```
       git clone github.com:robsonhs/api-bankink.git
       cd api-bankink
-      docker-compose -f docker/api-banking.yml up -d
+      docker-compose -f docker-compose.yml up -d
 ```
 Executando na IDE:
 ```
@@ -131,7 +130,7 @@ Executando na IDE:
       mix deps.clean --all
       mix deps.get
       mix deps.compile --all
-      docker image build -t app-api-banking /docker/bd/
+      docker image build -t app-api-banking /bd/
       docker container run app-api-banking
       mix run --no-halt
 ```
