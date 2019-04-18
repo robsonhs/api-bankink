@@ -16,7 +16,7 @@ defmodule ApiBanking.Repo.Transfer do
                     ApiBanking.Repo, 
                     "select perform_transfer::bigint from perform_transfer($1, $2, $3)",
                     [String.to_integer(request["debit_account"]),String.to_integer(request["favored_account"]),request["debit_amount"]])
-                    
+            
             ApiBanking.Util.Response.build(%{:transaction_code => hd(hd(response.rows))})
 
             rescue
@@ -33,7 +33,7 @@ defmodule ApiBanking.Repo.Transfer do
     end
 
     @doc """
-        Responsible for performing ted, execute the debit in an account and register transfer
+        Responsible for performing ted, execute the debit in an account and register ted
     """
     @spec performTed(%{}) :: ApiBanking.Util.Response.t()
     def performTed(request) do

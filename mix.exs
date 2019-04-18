@@ -30,7 +30,8 @@ defmodule ApiBanking.MixProject do
       {:guardian, "~> 1.2"},
       {:jose, "~> 1.9"},
       {:misc_random, "~> 0.2.6"},
-      {:blankable, "~> 1.0.0"}
+      {:blankable, "~> 1.0.0"},
+      {:distillery, "~> 2.0"}
     ]
   end
 end

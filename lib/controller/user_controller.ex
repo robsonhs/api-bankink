@@ -9,6 +9,7 @@ defmodule ApiBanking.Controller.User do
   """
   @spec sing_in(atom() | %{body_params: any()}) :: ApiBanking.Util.Response.t()
   def sing_in(conn) do
+    
     case authenticate(conn.body_params) do
       
       {:ok, credentials} -> 

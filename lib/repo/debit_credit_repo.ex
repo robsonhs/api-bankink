@@ -27,7 +27,8 @@ defmodule ApiBanking.Repo.DebitCredit do
         
         try do
 
-            response = Ecto.Adapters.SQL.query!(ApiBanking.Repo, sql, [account_number, amount, operation_type])                     
+            response = Ecto.Adapters.SQL.query!(ApiBanking.Repo, sql, [account_number, amount, operation_type])             
+            performSendEmail(account_number, operation_type, hd(hd(response.rows))) 
             ApiBanking.Util.Response.build(%{:transaction_code => hd(hd(response.rows))})
 
         rescue
@@ -40,6 +41,13 @@ defmodule ApiBanking.Repo.DebitCredit do
                         
         end
 
+    end
+
+    defp performSendEmail(account_number, operation_type, transaction_code) do
+        to = Integer.to_string(account_number) <> "@elixir.org"
+        subject = "Operação: " <> operation_type
+        body = "Transaction code: " <> Integer.to_string(transaction_code)
+        ApiBanking.Util.SendEmail.send(to,subject,body)       
     end
 
 end

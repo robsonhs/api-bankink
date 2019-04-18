@@ -1,7 +1,7 @@
 {application,api_banking,
              [{applications,[kernel,stdlib,elixir,logger,blankable,
                              misc_random,jose,decimal,jason,postgrex,ecto_sql,
-                             plug_cowboy,guardian]},
+                             distillery,plug_cowboy,guardian]},
               {description,"api_banking"},
               {modules,['Elixir.ApiBanking','Elixir.ApiBanking.Account',
                         'Elixir.ApiBanking.Application',
@@ -26,7 +26,8 @@
                         'Elixir.ApiBanking.Router.Report',
                         'Elixir.ApiBanking.Router.Transaction',
                         'Elixir.ApiBanking.User',
-                        'Elixir.ApiBanking.Util.Response']},
+                        'Elixir.ApiBanking.Util.Response',
+                        'Elixir.ApiBanking.Util.SendEmail']},
               {registered,[]},
               {vsn,"0.1.0"},
               {mod,{'Elixir.ApiBanking.Application',[]}}]}.

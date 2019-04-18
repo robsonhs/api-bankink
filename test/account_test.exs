@@ -3,7 +3,7 @@ defmodule ApiBanking.Test.Account do
     doctest ApiBanking
 
     test "Create account" do
-        
+
         request = %{
                         "document_holder" => "1234",
                         "name_holder" => "Test"
