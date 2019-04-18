@@ -2,6 +2,9 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
+config :api_banking,
+         ecto_repos: [ApiBanking.Repo]
+         
 config :api_banking, ApiBanking.Repo,
   database: System.get_env("DB_NAME"),
   username: System.get_env("DB_USER"),
