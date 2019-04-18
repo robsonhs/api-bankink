@@ -8,7 +8,7 @@ RUN mix local.hex --force
 
 EXPOSE 8080
 
-COPY ../../../api-bankink/ .
+COPY . .
 
 ENV DB_NAME=api_banking
 ENV DB_USER=apibanking

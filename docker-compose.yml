@@ -13,7 +13,7 @@ services:
     networks:
       - api-banking-network
   app:
-    build: app
+    build: .
     container_name: app_api-banking
     ports:
       - "8080:8080"

@@ -2,15 +2,12 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
-config :api_banking,
-         ecto_repos: [ApiBanking.Repo]
-
 config :api_banking, ApiBanking.Repo,
-  database: "api_banking",
-  username: "postgres",
-  password: "mysecretpassword",
-  hostname: "localhost",
-  port: 5432,
+  database: System.get_env("DB_NAME"),
+  username: System.get_env("DB_USER"),
+  password: System.get_env("DB_PASSWORD"),
+  hostname: System.get_env("DB_HOST"),
+  port: System.get_env("DB_PORT"),
   pool_size: 10
 
 config :api_banking, ApiBanking.Auth.Guardian,
