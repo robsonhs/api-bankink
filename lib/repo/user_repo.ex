@@ -13,11 +13,18 @@ defmodule ApiBanking.Repo.User do
     @doc """
         Responsible for getting the user from login and transforming into credential
     """
-    @spec findByIdCredentials(String.t()) :: ApiBanking.Credentials.t()
     def findByIdCredentials(username) do
+       
+        try do
+            
+            user = Repo.get(ApiBanking.User, username);
+            {:ok, ApiBanking.Credentials.build(user)}
         
-        user = Repo.get(ApiBanking.User, username);
-        ApiBanking.Credentials.build(user)
+        rescue
+
+            e in _ ->   {:error, e.postgres.message}
+
+        end
 
     end
 

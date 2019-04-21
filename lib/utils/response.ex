@@ -7,28 +7,28 @@ defmodule ApiBanking.Util.Response do
               contentType: "application/json",
               body: nil
 
-    @spec build(%{}) :: ApiBanking.Util.Response.t()
+    @spec build(any()) :: ApiBanking.Util.Response.t()
     def build(body) do
 
         %ApiBanking.Util.Response{body: body}
 
     end
    
-    @spec build(number, %{}) :: ApiBanking.Util.Response.t()
+    @spec build(any(), any()) :: ApiBanking.Util.Response.t()
     def build(httpStatusCode, body) do
 
         %ApiBanking.Util.Response{httpStatusCode: httpStatusCode, body: body}
 
     end
 
-    @spec build(number, String.t(), %{}) :: ApiBanking.Util.Response.t()
+    @spec build(any(), any(), any()) :: ApiBanking.Util.Response.t()
     def build(httpStatusCode, contentType, body) do
 
         %ApiBanking.Util.Response{httpStatusCode: httpStatusCode, contentType: contentType, body: body}
 
     end
     
-    @spec buildError(%{}) :: ApiBanking.Util.Response.t()
+    @spec buildError(any()) :: ApiBanking.Util.Response.t()
     def buildError(body) do
 
         %ApiBanking.Util.Response{httpStatusCode: 500, body: body}

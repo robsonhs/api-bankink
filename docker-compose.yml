@@ -1,8 +1,8 @@
 version: '3.1'
 services:
-  postgres:
+  db:
     build: bd
-    container_name: postgres_api-banking
+    container_name: postgres-api-banking
     restart: always
     environment:
       POSTGRES_USER: apibanking
@@ -12,16 +12,23 @@ services:
       - "8285:5432"
     networks:
       - api-banking-network
+
   app:
-    build: .
-    container_name: app_api-banking
+    build:
+      context: .
+      args:
+        DB_NAME: api_banking
+        DB_USER: apibanking
+        DB_PASSWORD: 3xt4dwpb
+        DB_HOST: db
+        DB_PORT: 5432
+    container_name: app-api-banking
     ports:
       - "8080:8080"
     depends_on:
-      - postgres
+      - db
     networks:
-      - api-banking-network
+      - api-banking-network     
 
 networks:
-  api-banking-network:
-    driver: bridge
+  api-banking-network: {}

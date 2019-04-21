@@ -15,7 +15,7 @@ defmodule ApiBanking.Controller.Account do
             
             account_number = Misc.Random.number(8)
             request = Map.put(request,"account_number", account_number)
-            request = Map.put(request,"balance","1000.0")
+            request = Map.put(request,"balance","0.0")
             changeset = ApiBanking.Account.changeset(%ApiBanking.Account{},request)
             Repo.insert(changeset)
 

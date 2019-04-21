@@ -6,15 +6,18 @@ RUN chmod -R 777 /app
 RUN mix local.rebar --force
 RUN mix local.hex --force
 
-EXPOSE 8080
-
 COPY . .
 
-ENV DB_NAME=api_banking
-ENV DB_USER=apibanking
-ENV DB_PASSWORD=3xt4dwpb
-ENV DB_HOST=localhost
-ENV DB_PORT=8285
+ARG DB_NAME
+ENV DB_NAME=${DB_NAME}
+ARG DB_USER
+ENV DB_USER=${DB_USER}
+ARG DB_PASSWORD
+ENV DB_PASSWORD=${DB_PASSWORD}
+ARG DB_HOST
+ENV DB_HOST=${DB_HOST}
+ARG DB_PORT
+ENV DB_PORT=${DB_PORT}
 
 RUN mix deps.clean --all
 RUN mix deps.get

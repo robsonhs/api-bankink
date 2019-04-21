@@ -9,15 +9,15 @@ defmodule ApiBanking.Controller.User do
   """
   @spec sing_in(atom() | %{body_params: any()}) :: ApiBanking.Util.Response.t()
   def sing_in(conn) do
-    
+
     case authenticate(conn.body_params) do
       
       {:ok, credentials} -> 
-        conn = ApiBanking.Auth.Guardian.Plug.sign_in(conn, credentials, %{default: [:read, :write]})
+        conn = ApiBanking.Auth.Guardian.Plug.sign_in(conn, credentials, %{default: [:transaction, :report]})
         jwt = ApiBanking.Auth.Guardian.Plug.current_token(conn)
         ApiBanking.Util.Response.build(%{:acess_token => jwt})
 
-      _ ->  ApiBanking.Util.Response.buildUnauthorized()
+      {:error, response = %ApiBanking.Util.Response{} } -> response
 
     end
 
@@ -25,16 +25,21 @@ defmodule ApiBanking.Controller.User do
 
   defp authenticate(%{"client_id" => username, "client_secret" => password}) do
     
-    credentials = ApiBanking.Repo.User.findByIdCredentials(username)
+    case ApiBanking.Repo.User.findByIdCredentials(username) do
+      
+      {:ok, credentials} ->
+        if password == credentials.password do
         
-    if password == credentials.password do
-        
-        credentials = %ApiBanking.Credentials{credentials | password: nil}
-        {:ok, credentials}
+          credentials = %ApiBanking.Credentials{credentials | password: nil}
+          {:ok, credentials}
+  
+        else
+            
+            {:error, ApiBanking.Util.Response.buildUnauthorized()}    
+    
+        end
 
-    else
-        
-        {:error}    
+      {:error, msg}  -> {:error, ApiBanking.Util.Response.build(500,%{:message => msg})}
 
     end
     
