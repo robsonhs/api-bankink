@@ -3,7 +3,7 @@
 use Mix.Config
 
 config :api_banking,
-    ecto_repos: [ApiBanking.Repo]
+        ecto_repos: [ApiBanking.Repo]
 
 config :api_banking, ApiBanking.Repo,
     database: System.get_env("DB_NAME"),
