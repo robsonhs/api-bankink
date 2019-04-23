@@ -83,32 +83,35 @@ O modelo de dados desta API é composto de: <br/>
 ## API REST
 Para expor nossos serviços utilizamos o estilo arquitetural [REST](https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm). Para proteção de nossa API utilizamos autenticação via JWT, o token terá validade de 1 hora. 
 
-Credenciais de acesso:
-   username: admin
-   password: admin
+Credenciais de acesso:<br/>
+   username: admin <br/>
+   password: admin <br/>
+   
+API disponível em:
+   **http://52.204.222.61:8080/**
    
 * Endpoints
-   * (Post) /auth/token <br/>
+   * (Post) [/auth/token](http://52.204.222.61:8080/auth/token) <br/>
      Provém recurso responsável pela autenticação <br/>
      <img width="411" alt="Screen Shot 2019-04-16 at 07 51 31" src="https://user-images.githubusercontent.com/4596229/56204400-b9db8400-601d-11e9-9afa-30db03161ad4.png">
 
-   * (Post) /api/accounts <br/>
+   * (Post) [/api/accounts](http://52.204.222.61:8080/api/accounts) <br/>
      Provém recurso responsável pela criação de uma conta <br/>
      <img width="412" alt="Screen Shot 2019-04-16 at 07 51 57" src="https://user-images.githubusercontent.com/4596229/56204381-ab8d6800-601d-11e9-9505-af7f6a663586.png">
 
-   * (Get) api/accounts/{account_number}/balance <br/>
+   * (Get) [/api/accounts/{account_number}/balance](http://52.204.222.61:8080/api/accounts/41817987/balance) <br/>
      Provém recurso responsável por retornar o saldo para uma determinada conta <br/>
      <img width="412" alt="Screen Shot 2019-04-16 at 07 54 40" src="https://user-images.githubusercontent.com/4596229/56204341-94e71100-601d-11e9-9cee-a3176106283d.png">
 
-   * (Post) /api/transactions <br/>
+   * (Post) [/api/transactions](http://52.204.222.61:8080/api/transactions) <br/>
      Provém recurso responsável por executar débito(saque) e crédito(Estorno) em uma determinada conta <br/>
      <img width="412" alt="Screen Shot 2019-04-16 at 07 54 59" src="https://user-images.githubusercontent.com/4596229/56204307-83056e00-601d-11e9-9f53-5ba6ed131376.png">
 
-   * (Post) /api/transactions/transfer <br/>
+   * (Post) [/api/transactions/transfer](http://52.204.222.61:8080/api/transactions/transfer) <br/>
      Provém recurso responsável por realizar transferência e ted em uma determinada conta <br/>
      <img width="412" alt="Screen Shot 2019-04-16 at 07 55 37" src="https://user-images.githubusercontent.com/4596229/56204270-69fcbd00-601d-11e9-9dc9-d9cef6b55f8f.png">
 
-   * (Get) /api/reports/transaction <br/>
+   * (Get) [/api/reports/transaction](http://52.204.222.61:8080/api/reports/transaction?filter=day&value=2019-04-07&type=synthetic) <br/>
      Provém recurso responsável por extração de relatórios <br/>
      <img width="413" alt="Screen Shot 2019-04-16 at 07 56 13" src="https://user-images.githubusercontent.com/4596229/56204238-57828380-601d-11e9-8f6f-b9bf7f3ac2ce.png">
 
