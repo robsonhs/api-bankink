@@ -13,7 +13,7 @@ defmodule ApiBanking.Controller.Transfer do
     if validateRequest(request) do
       
       case request["favored_bank_code"] do
-        "732" -> transfer(request)
+        "875" -> transfer(request)
         _ -> ted(request)
       end
 
