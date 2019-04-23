@@ -134,6 +134,6 @@ Executando na IDE:
       mix deps.get
       mix deps.compile --all
       docker image build -t app-api-banking /bd/
-      docker container run app-api-banking
-      mix run --no-halt
+      docker container run -e POSTGRES_DB=api_banking -e POSTGRES_USER=apibanking -e POSTGRES_PASSWORD=apibanking -p 5432:5432 -d api-banking-postgres
+      MIX_ENV=dev mix run --no-halt
 ```
