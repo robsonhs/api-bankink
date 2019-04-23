@@ -87,8 +87,8 @@ Credenciais de acesso:<br/>
    username: admin <br/>
    password: admin <br/>
    
-API disponível em:
-   **http://52.204.222.61:8080/**
+API disponível em: **http://52.204.222.61:8080/** <br/>
+Documentação dispnível em: **https://documenter.getpostman.com/view/3564642/S1ENzzQY** <br/>
    
 * Endpoints
    * (Post) [/auth/token](http://52.204.222.61:8080/auth/token) <br/>
@@ -104,18 +104,16 @@ API disponível em:
      <img width="412" alt="Screen Shot 2019-04-16 at 07 54 40" src="https://user-images.githubusercontent.com/4596229/56204341-94e71100-601d-11e9-9cee-a3176106283d.png">
 
    * (Post) [/api/transactions](http://52.204.222.61:8080/api/transactions) <br/>
-     Provém recurso responsável por executar débito(saque) e crédito(Estorno) em uma determinada conta <br/>
+     Provém recurso responsável por executar débito(operation_type=D) e crédito(operation_type=C) em uma determinada conta <br/>
      <img width="412" alt="Screen Shot 2019-04-16 at 07 54 59" src="https://user-images.githubusercontent.com/4596229/56204307-83056e00-601d-11e9-9f53-5ba6ed131376.png">
 
    * (Post) [/api/transactions/transfer](http://52.204.222.61:8080/api/transactions/transfer) <br/>
-     Provém recurso responsável por realizar transferência e ted em uma determinada conta <br/>
+     Provém recurso responsável por realizar transferência(transações entre contas do banco 875) e ted(transações tendo a conta favorecida em outro banco) <br/>
      <img width="412" alt="Screen Shot 2019-04-16 at 07 55 37" src="https://user-images.githubusercontent.com/4596229/56204270-69fcbd00-601d-11e9-9dc9-d9cef6b55f8f.png">
 
    * (Get) [/api/reports/transaction](http://52.204.222.61:8080/api/reports/transaction?filter=day&value=2019-04-07&type=synthetic) <br/>
      Provém recurso responsável por extração de relatórios <br/>
      <img width="413" alt="Screen Shot 2019-04-16 at 07 56 13" src="https://user-images.githubusercontent.com/4596229/56204238-57828380-601d-11e9-8f6f-b9bf7f3ac2ce.png">
-
- [**Documentação da API**](https://documenter.getpostman.com/view/3564642/S1ENzzQY)
 
 ## Execução
 Para realizar o empacotamento e o deployment da aplicação foi utilizado [Distillery](https://hexdocs.pm/distillery/home.html).
