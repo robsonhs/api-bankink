@@ -10,7 +10,6 @@ defmodule ApiBanking.Router.Authentication do
         if conn.body_params["grant_type"] === "client_credentials" do
             
             response = ApiBanking.Controller.User.sing_in(conn)
-
             conn
             |> put_resp_content_type(response.contentType)
             |> send_resp(response.httpStatusCode,Jason.encode!(response.body))

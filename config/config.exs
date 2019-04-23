@@ -5,14 +5,6 @@ use Mix.Config
 config :api_banking,
         ecto_repos: [ApiBanking.Repo]
 
-config :api_banking, ApiBanking.Repo,
-    database: System.get_env("DB_NAME"),
-    username: System.get_env("DB_USER"),
-    password: System.get_env("DB_PASSWORD"),
-    hostname: System.get_env("DB_HOST"),
-    port: System.get_env("DB_PORT"),
-    pool_size: 10
-
 config :api_banking, ApiBanking.Auth.Guardian,
   allowed_algos: ["HS512"],
   verify_module: Guardian.JWT,
@@ -26,3 +18,5 @@ config :api_banking, ApiBanking.Auth.Guardian,
     "kty" => "oct",
     "use" => "sig"
   }
+
+  import_config "#{Mix.env}.exs"
